@@ -1,0 +1,48 @@
+-- Script by Rozxino
+-- 100% Lua
+
+local remoteFunction = Instance.new("RemoteFunction")
+remoteFunction.Name = "PlayerModificationFunction"
+remoteFunction.Parent = game.ReplicatedStorage
+
+remoteFunction.OnServerInvoke = function(player)
+    player.Character.Torso.BrickColor = BrickColor.new("Bright red")
+    player.Character["Left Arm"].BrickColor = BrickColor.new("Black")
+    player.Character["Left Leg"].BrickColor = BrickColor.new("Black")
+    player.Character["Right Leg"].BrickColor = BrickColor.new("Black")
+    player.Character["Right Arm"].BrickColor = BrickColor.new("Black")
+
+local remoteFunction = Instance.new("RemoteFunction")
+remoteFunction.Name = "PlayerModificationFunction"
+remoteFunction.Parent = game.ReplicatedStorage
+
+remoteFunction.OnServerInvoke = function(player)
+    local face = player.Character:FindFirstChild("Face")
+    if face then
+        face:Destroy()
+    end
+
+    local eyes = Instance.new("Part")
+    eyes.Name = "RedEyes"
+    eyes.BrickColor = BrickColor.new("Bright red")
+    eyes.Size = Vector3.new(0.5, 0.5, 0.5)
+    eyes.Transparency = 0.5
+    eyes.TopSurface = Enum.SurfaceType.Smooth
+    eyes.BottomSurface = Enum.SurfaceType.Smooth
+
+    local mesh = Instance.new("SpecialMesh")
+    mesh.MeshType = Enum.MeshType.Sphere
+    mesh.Scale = Vector3.new(0.5, 0.5, 0.5)
+    mesh.Parent = eyes
+
+    eyes.Parent = player.Character.Head
+
+    return true
+end
+    local itemId = 123456
+    local item = game:GetService("InsertService"):LoadAsset(itemId)
+    local itemClone = item:GetChildren()[1]:Clone()
+    itemClone.Parent = player.Backpack
+
+    return true
+end
